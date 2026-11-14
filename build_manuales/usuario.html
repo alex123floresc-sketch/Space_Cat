@@ -3,20 +3,66 @@
 <head>
 <meta charset="utf-8">
 <title>Space Cat — Manual de usuario</title>
-<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="doc.css">
 </head>
 <body>
 
-<div class="portada">
-  <img class="gato" src="cat_oscuro.png" alt="Space Cat">
-  <h1>Space Cat</h1>
-  <p class="sub">Manual de usuario</p>
-  <div class="meta">
-    Versión 1.0.0 · Diseña tu casa en 3D con medidas reales
-    <div class="empresa">FSHF · Juliaca, Puno, Perú</div>
-  </div>
+<!-- ===================== PORTADA ===================== -->
+<section class="portada">
+  <img class="logo" src="cat_negro.png" alt="Space Cat">
+  <div class="marca">SPACE&nbsp;CAT</div>
+  <h1>Manual de usuario</h1>
+  <p class="proy-rotulo">Producto</p>
+  <p class="proyecto">Space Cat: aplicación de escritorio para el diseño de interiores en 3D con medidas reales y estimación de presupuesto</p>
+  <p class="codigo">Código SC-MU-01 &nbsp;·&nbsp; Versión 1.0 &nbsp;·&nbsp; 14 de noviembre de 2026</p>
+  <dl class="ficha">
+    <dt>Integrantes</dt><dd>Flores Calcina, Alexander Edson</dd>
+    <dt></dt><dd>Sandia Condori, George James</dd>
+    <dt></dt><dd>Huanca Tiña, Erick Reison</dd>
+    <dt></dt><dd>Flores Ccori, Brayan</dd>
+    <dt>Equipo</dt><dd>FSHF</dd>
+    <dt>Fecha</dt><dd>14 de noviembre de 2026</dd>
+  </dl>
+  <p class="lugar">JULIACA – PERÚ<br>2026</p>
+</section>
+
+<!-- ===================== CONTROL DEL DOCUMENTO ===================== -->
+<h2 class="centrado">Control del documento</h2>
+<table>
+  <tbody>
+    <tr><th style="width:30%">Campo</th><th>Valor</th></tr>
+    <tr><td><b>Documento</b></td><td>Manual de usuario</td></tr>
+    <tr><td><b>Código</b></td><td>SC-MU-01</td></tr>
+    <tr><td><b>Versión</b></td><td>1.0</td></tr>
+    <tr><td><b>Fecha</b></td><td>14 de noviembre de 2026</td></tr>
+    <tr><td><b>Estado</b></td><td>Versión publicada</td></tr>
+    <tr><td><b>Producto</b></td><td>Space Cat 1.0.0 para Windows</td></tr>
+    <tr><td><b>Elaborado por</b></td><td>Flores Ccori, Brayan (documentación)</td></tr>
+    <tr><td><b>Equipo</b></td><td>FSHF — Juliaca, Puno, Perú</td></tr>
+  </tbody>
+</table>
+
+<!-- ===================== ÍNDICE ===================== -->
+<div class="indice pagina-nueva">
+  <h2>Índice</h2>
+  <ul class="toc">
+    <li><span>1. ¿Qué es Space Cat?</span><span class="punto"></span></li>
+    <li><span>2. La primera pantalla</span><span class="punto"></span></li>
+    <li><span>3. Diseñar un ambiente, paso a paso</span><span class="punto"></span></li>
+    <li class="sub"><span>3.1 Crear el ambiente</span><span class="punto"></span></li>
+    <li class="sub"><span>3.2 Puertas y ventanas</span><span class="punto"></span></li>
+    <li class="sub"><span>3.3 Acabados</span><span class="punto"></span></li>
+    <li class="sub"><span>3.4 Amueblar</span><span class="punto"></span></li>
+    <li><span>4. Las vistas</span><span class="punto"></span></li>
+    <li><span>5. Diseñar tus propios muebles</span><span class="punto"></span></li>
+    <li><span>6. Metrado y presupuesto</span><span class="punto"></span></li>
+    <li><span>7. Guardar y exportar</span><span class="punto"></span></li>
+    <li><span>8. Atajos de teclado</span><span class="punto"></span></li>
+    <li><span>9. Preguntas frecuentes</span><span class="punto"></span></li>
+  </ul>
 </div>
 
+<!-- ===================== CONTENIDO ===================== -->
 <h2>1. ¿Qué es Space Cat?</h2>
 <p>Space Cat es una aplicación para Windows que te deja <b>dibujar los ambientes de tu casa con
 medidas reales</b>, amoblarlos en 3D y saber <b>cuánto va a costar</b> en soles antes de comprar
@@ -29,10 +75,15 @@ nada. Todo funciona sin internet y tus proyectos se guardan en tu computadora.</
   <li>Ver el ambiente en 3D, en planta con cotas, y recorrerlo por dentro.</li>
   <li>Obtener el metrado y el presupuesto, y exportarlo a Excel o PDF.</li>
 </ul>
+<figure>
+  <img src="v3d.png" alt="Casa amoblada en vista 3D">
+  <figcaption><span class="fig-rotulo">Figura 1.</span> Una casa completa amoblada en la vista 3D, con el área y el costo de cada ambiente.</figcaption>
+</figure>
 
 <h2>2. La primera pantalla</h2>
 <p>Al abrir Space Cat verás la pantalla de bienvenida con estas opciones:</p>
 <table>
+  <caption>Tabla 1. Opciones de la pantalla de bienvenida.</caption>
   <thead><tr><th>Opción</th><th>Para qué sirve</th></tr></thead>
   <tbody>
     <tr><td><b>Nuevo proyecto</b></td><td>Empezar un ambiente desde cero</td></tr>
@@ -43,45 +94,38 @@ nada. Todo funciona sin internet y tus proyectos se guardan en tu computadora.</
 </table>
 <figure>
   <img src="bienvenida.png" alt="Pantalla de bienvenida de Space Cat">
-  <figcaption>Pantalla de bienvenida de Space Cat.</figcaption>
+  <figcaption><span class="fig-rotulo">Figura 2.</span> Pantalla de bienvenida de Space Cat.</figcaption>
 </figure>
 
 <h2>3. Diseñar un ambiente, paso a paso</h2>
 
-<h3><span class="paso">1</span> Crea el ambiente</h3>
+<h3>3.1 Crear el ambiente</h3>
 <p>Elige <b>Nuevo proyecto</b> o parte de una plantilla. Escribe el <b>ancho</b>, el <b>largo</b>
 y el <b>alto</b> en metros. El ambiente aparece vacío y a escala real.</p>
+<figure>
+  <img src="plantillas.png" alt="Elegir una plantilla de ambiente">
+  <figcaption><span class="fig-rotulo">Figura 3.</span> Puedes empezar desde una plantilla ya amoblada.</figcaption>
+</figure>
 
-<h3><span class="paso">2</span> Pon puertas y ventanas</h3>
+<h3>3.2 Puertas y ventanas</h3>
 <p>Usa <b>+ Puerta</b> y <b>+ Ventana</b> para colocarlas en la pared que quieras. La aplicación
 no deja que se superpongan ni que queden fuera de la pared.</p>
 
-<h3><span class="paso">3</span> Elige los acabados</h3>
+<h3>3.3 Acabados</h3>
 <p>En la pestaña <b>Ambiente</b> eliges el material y el color de cada pared, del piso y del
 zócalo: pintura, ladrillo, cerámico, madera, porcelanato y más.</p>
 <figure>
-  <img src="vplanta.png" alt="Vista en planta con las medidas de cada pared y mueble">
-  <figcaption>Vista en planta: cada pared y cada mueble con su medida en metros.</figcaption>
+  <img src="vplanta.png" alt="Vista en planta con medidas">
+  <figcaption><span class="fig-rotulo">Figura 4.</span> Vista en planta: cada pared y cada mueble con su medida en metros.</figcaption>
 </figure>
 
-<h3><span class="paso">4</span> Amuebla</h3>
+<h3>3.4 Amueblar</h3>
 <p>Arrastra muebles desde el catálogo de la izquierda. El <b>imán</b> los pega a las paredes con
 su tamaño real. Puedes girarlos, moverlos y cambiar su medida y color en el panel derecho.</p>
-<figure>
-  <img src="v3d.png" alt="Casa amoblada en vista 3D">
-  <figcaption>La casa amoblada en 3D, con el área y el costo de cada ambiente.</figcaption>
-</figure>
-
-<h3><span class="paso">5</span> Revisa y recorre</h3>
-<p>Cambia entre la <b>vista 3D</b>, la <b>planta con cotas</b> y el <b>recorrido</b> en primera
-persona. Así compruebas si de verdad se puede pasar entre los muebles.</p>
-
-<h3><span class="paso">6</span> Saca el presupuesto</h3>
-<p>Abre el <b>metrado y presupuesto</b> para ver los materiales y el costo en soles. Puedes
-editar los precios y exportar el resultado a Excel o a un informe PDF con la planta y la vista 3D.</p>
 
 <h2>4. Las vistas</h2>
 <table>
+  <caption>Tabla 2. Las cuatro formas de ver tu ambiente.</caption>
   <thead><tr><th>Vista</th><th>Qué muestra</th></tr></thead>
   <tbody>
     <tr><td><b>3D</b></td><td>El ambiente en tres dimensiones; gira la cámara para verlo desde cualquier ángulo</td></tr>
@@ -91,8 +135,12 @@ editar los precios y exportar el resultado a Excel o a un informe PDF con la pla
   </tbody>
 </table>
 <figure>
-  <img src="vrecorrido.png" alt="Recorrido en primera persona dentro del ambiente">
-  <figcaption>Recorrido en primera persona: caminas por dentro a la altura de los ojos.</figcaption>
+  <img src="vrecorrido.png" alt="Recorrido en primera persona">
+  <figcaption><span class="fig-rotulo">Figura 5.</span> Recorrido en primera persona dentro del ambiente amoblado.</figcaption>
+</figure>
+<figure>
+  <img src="vnoche.png" alt="Ambiente en modo noche">
+  <figcaption><span class="fig-rotulo">Figura 6.</span> Modo noche: el ambiente iluminado solo por las lámparas.</figcaption>
 </figure>
 <p class="nota">Con el ratón en la vista 3D: el <b>botón izquierdo</b> gira la cámara, el
 <b>botón derecho</b> la desplaza y la <b>rueda</b> acerca o aleja.</p>
@@ -103,25 +151,35 @@ con cajas, cilindros, esferas y barras, midiendo todo en centímetros. También 
 modelos 3D en formato <code>.glb</code> o <code>.gltf</code> con sus medidas reales.</p>
 <figure>
   <img src="vmuebles.png" alt="Diseñador de muebles">
-  <figcaption>El Diseñador de muebles: arma un mueble a partir de formas básicas.</figcaption>
+  <figcaption><span class="fig-rotulo">Figura 7.</span> El Diseñador de muebles: arma un mueble a partir de formas básicas.</figcaption>
 </figure>
 
-<h2>6. Guardar y exportar</h2>
+<h2>6. Metrado y presupuesto</h2>
+<p>Abre el <b>metrado y presupuesto</b> para ver los materiales y el costo en soles: los metros
+cuadrados de piso y pared, los galones de pintura, el cerámico, el zócalo y los muebles. Puedes
+editar cualquier precio con doble clic; se guarda para todos tus proyectos.</p>
+<figure>
+  <img src="vpresupuesto.png" alt="Ventana de metrado y presupuesto">
+  <figcaption><span class="fig-rotulo">Figura 8.</span> Metrado y presupuesto: materiales y costo en soles, listos para exportar.</figcaption>
+</figure>
+
+<h2>7. Guardar y exportar</h2>
 <ul>
   <li><b>Guardar:</b> <span class="kbd">Ctrl</span>+<span class="kbd">S</span>. El proyecto queda en tu computadora.</li>
   <li><b>Exportar el proyecto</b> como archivo para abrirlo en otra computadora: <i>Archivo → Exportar</i>.</li>
   <li><b>Informe PDF</b> con la planta, la vista 3D y el presupuesto: <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">P</span>.</li>
   <li><b>Presupuesto a Excel</b> desde la ventana de metrado y presupuesto.</li>
 </ul>
-<figure>
-  <img src="vpresupuesto.png" alt="Ventana de metrado y presupuesto en soles">
-  <figcaption>Metrado y presupuesto: materiales y costo en soles, listos para exportar.</figcaption>
+<figure class="chica">
+  <img src="informe.png" alt="Informe PDF generado por la aplicación">
+  <figcaption><span class="fig-rotulo">Figura 9.</span> Ejemplo de informe PDF generado por Space Cat.</figcaption>
 </figure>
-<p class="nota">Space Cat hace una <b>copia automática</b> de tu trabajo cada minuto, así que si se
-cierra de golpe, al volver a abrir recuperas lo último.</p>
+<p class="nota">Space Cat hace una copia automática de tu trabajo cada minuto, así que si se cierra
+de golpe, al volver a abrir recuperas lo último.</p>
 
-<h2>7. Atajos de teclado más usados</h2>
+<h2>8. Atajos de teclado</h2>
 <table>
+  <caption>Tabla 3. Atajos más usados (dentro de la aplicación, <span class="kbd">F1</span> muestra la lista completa).</caption>
   <thead><tr><th>Atajo</th><th>Acción</th></tr></thead>
   <tbody>
     <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">S</span></td><td>Guardar el proyecto</td></tr>
@@ -133,23 +191,22 @@ cierra de golpe, al volver a abrir recuperas lo último.</p>
     <tr><td><span class="kbd">M</span></td><td>Medir distancias</td></tr>
     <tr><td><span class="kbd">N</span></td><td>Modo noche</td></tr>
     <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">P</span></td><td>Metrado y presupuesto</td></tr>
-    <tr><td><span class="kbd">F1</span></td><td>Lista completa de atajos</td></tr>
   </tbody>
 </table>
 
-<h2>8. Preguntas frecuentes</h2>
+<h2>9. Preguntas frecuentes</h2>
 <h3>¿Necesito internet?</h3>
 <p>Solo para descargarla. Después funciona sin conexión.</p>
 <h3>¿Dónde se guardan mis proyectos?</h3>
-<p>En tu propia computadora. También puedes exportar cada proyecto como un archivo para llevarlo
-a otra máquina.</p>
+<p>En tu propia computadora. También puedes exportar cada proyecto como un archivo para llevarlo a
+otra máquina.</p>
 <h3>¿Los precios del presupuesto son reales?</h3>
 <p>Son precios referenciales en soles que puedes cambiar; se guardan para todos tus proyectos.</p>
 <h3>¿Puedo usar mis propios muebles?</h3>
 <p>Sí: ármalos con el Diseñador de muebles o importa modelos 3D <code>.glb</code> o <code>.gltf</code>.</p>
 
-<p class="nota" style="margin-top:1cm">¿Tienes una consulta? Escríbenos por WhatsApp al
-<b>919 192 008</b>. — Equipo FSHF</p>
+<p style="margin-top:1cm">¿Tienes una consulta? Escríbenos por WhatsApp al <b>919 192 008</b>.
+— Equipo FSHF</p>
 
 </body>
 </html>
