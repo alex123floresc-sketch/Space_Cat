@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b1020" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={`${base}/favicon.png`} type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fomantic UI: solo los componentes de acordeón y pestañas -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css"
+    />
+  </head>
+  <body>
+    <div class="cielo" aria-hidden="true"></div>
+    <div class="estrellas" aria-hidden="true"></div>
+    <a
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 btn btn-primario"
+      href="#contenido">Ir al contenido</a
+    >
+    <slot />
+
+    <!-- jQuery + Fomantic JS al final, para el acordeón y las pestañas -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+      is:inline></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"
+      is:inline></script>
+    <script is:inline>
+      window.addEventListener('load', () => {
+        if (window.jQuery) {
+          jQuery('.ui.accordion').accordion({ exclusive: false });
+          jQuery('.ui.menu .item').tab();
+        }
+      });
+    </script>
+  </body>
+</html>
