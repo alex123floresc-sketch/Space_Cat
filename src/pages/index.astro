@@ -100,28 +100,34 @@ const faqs = [
         <p class="mt-4 text-sm text-[#8891b5]">Instalador único · trae Java incluido · sin configurar nada.</p>
       </div>
 
-      <div class="cat-entra relative">
-        <div class="absolute -inset-4 -z-10 overflow-hidden rounded-full bg-[radial-gradient(closest-side,rgba(138,116,240,.35),transparent)] blur-xl"></div>
-        <div class="vidrio p-8 text-center">
-          <img src={`${base}/img/cat_blanco.png`} alt="Logo de Space Cat: un gato en trazo" width="194" height="275" class="mx-auto h-56 w-auto" />
-          <p class="display mt-4 text-2xl font-600 text-white">Space Cat</p>
-          <p class="text-sm text-[var(--color-cian)]">por FSHF</p>
+      <div class="cat-entra laminada">
+        <span class="registro tl"></span><span class="registro tr"></span>
+        <div class="relative px-8 pt-10 pb-6 text-center">
+          <img src={`${base}/img/cat_blanco.png`} alt="Logo de Space Cat: un gato en trazo" width="194" height="275" class="mx-auto h-60 w-auto" />
+          <div class="cota-v" aria-hidden="true"><span>a escala real</span></div>
+          <p class="display mt-5 text-2xl font-600 text-white">Space Cat</p>
+        </div>
+        <div class="cartela">
+          <span>FSHF · Diseño de interiores 3D</span>
+          <span class="font-600 text-[var(--color-lavanda)]">v{version}</span>
         </div>
       </div>
     </section>
 
-    <!-- ======================= POR QUÉ ======================= -->
-    <section class="contenedor grid gap-4 py-6 sm:grid-cols-3">
-      {[
-        { t: 'Gratis', d: 'Sin costo ni suscripción. Descárgala y úsala.' },
-        { t: 'Sin internet', d: 'Funciona offline; tus proyectos quedan en tu PC.' },
-        { t: 'Soles reales', d: 'Metrado y presupuesto en soles que puedes editar.' },
-      ].map((x) => (
-        <div class="vidrio p-5">
-          <p class="display text-lg font-600 text-[var(--color-lavanda)]">{x.t}</p>
-          <p class="mt-1 text-sm text-[#b9c0dc]">{x.d}</p>
-        </div>
-      ))}
+    <!-- ======================= POR QUÉ (datos acotados) ======================= -->
+    <section class="contenedor py-6">
+      <div class="grid gap-y-8 border-y border-[var(--color-borde)] py-8 sm:grid-cols-3 sm:gap-x-12">
+        {[
+          { t: 'Gratis', d: 'Sin costo ni suscripción. Descárgala y úsala.' },
+          { t: 'Sin internet', d: 'Funciona offline; tus proyectos quedan en tu PC.' },
+          { t: 'Soles reales', d: 'Metrado y presupuesto en soles que puedes editar.' },
+        ].map((x) => (
+          <div class="medida-dato">
+            <p class="display text-xl font-600 text-white">{x.t}</p>
+            <p class="mt-1 text-sm text-[#b9c0dc]">{x.d}</p>
+          </div>
+        ))}
+      </div>
     </section>
 
     <!-- ======================= FUNCIONES ======================= -->

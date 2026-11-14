@@ -13,6 +13,7 @@
   --color-lavanda-2: #8a74f0;
   --color-cian:      #67e8f9;
   --color-estrella:  #e8ecff;
+  --color-cota:      #ffd166;   /* ámbar de las líneas de cota, como en la app */
 
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-cuerpo:  "Inter", "Segoe UI", system-ui, sans-serif;
@@ -88,6 +89,49 @@ h1, h2, h3, .display { font-family: var(--font-display); }
 
   .marco-app { border-radius: .8rem; overflow: hidden; border: 1px solid var(--color-borde); background: var(--color-noche-700); box-shadow: 0 30px 70px -30px rgba(0,0,0,.8); }
   .marco-app::before { content: ""; display: block; height: 30px; background: linear-gradient(#0f1430,#0b1020); border-bottom: 1px solid var(--color-borde); }
+}
+
+/* ---- Motivo de plano/cota: el producto mide espacios reales ---- */
+/* Héroe: el gato presentado como un dibujo acotado, con retícula y marco técnico */
+.laminada {
+  position: relative;
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px) 0 0 / 28px 100%,
+    radial-gradient(130% 90% at 62% 30%, rgba(138,116,240,.16), transparent 60%),
+    var(--color-noche-700);
+  overflow: hidden;
+}
+/* esquinas de registro, como las marcas de recorte de un plano */
+.laminada .registro { position: absolute; width: 14px; height: 14px; border: 2px solid var(--color-cota); opacity: .8; }
+.laminada .registro.tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+.laminada .registro.tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
+.laminada .registro.bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
+.laminada .registro.br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+/* línea de cota vertical a la derecha del gato */
+.cota-v { position: absolute; top: 18%; bottom: 18%; right: 26px; width: 0; border-left: 1.5px solid var(--color-cota); }
+.cota-v::before, .cota-v::after { content: ""; position: absolute; left: -5px; width: 11px; border-top: 1.5px solid var(--color-cota); }
+.cota-v::before { top: 0; } .cota-v::after { bottom: 0; }
+.cota-v span {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  font: 600 .72rem var(--font-cuerpo); color: var(--color-cota);
+  background: var(--color-noche-700); padding: 2px 4px; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+/* cartela inferior, como el rótulo de un plano */
+.cartela {
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  border-top: 1px solid var(--color-borde);
+  padding: .7rem 1rem; font-size: .8rem; color: #9aa3c4;
+}
+
+/* Cifras "medidas": marca de cota ámbar arriba, como un dato acotado */
+.medida-dato { position: relative; padding-top: 1rem; }
+.medida-dato::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 1.6rem; height: 0;
+  border-top: 2px solid var(--color-cota);
 }
 
 /* Fomantic: que sus componentes respeten el ancho del móvil */
