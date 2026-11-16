@@ -32,7 +32,7 @@ const docs = [
       <div style="width:100%; font-family: Georgia, serif; font-size:8px; color:#333;
                   padding:0 1.8cm; margin-bottom:.3cm; display:flex; justify-content:space-between;
                   border-top:1px solid #999; padding-top:3px;">
-        <span>${d.codigo} · ${d.titulo}</span>
+        <span>Space Cat · ${d.titulo}</span>
         <span>Página <span class="pageNumber"></span> de <span class="totalPages"></span></span>
       </div>`;
 
