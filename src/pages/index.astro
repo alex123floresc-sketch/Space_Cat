@@ -5,40 +5,50 @@ const version = '1.0.0';
 const whatsapp = 'https://wa.me/51919192008';
 
 const funciones = [
-  { id: '3d', nombre: 'Casa en 3D', img: 'f_3d.png', titulo: 'Toda tu casa en 3D',
+  { id: '3d', nombre: 'Casa en 3D', img: 'f_3d.png',
+    titulo: 'Toda tu casa en 3D',
     texto: 'Arma sala, dormitorios, cocina y baño en hasta cuatro pisos. Los muros se pegan solos y las puertas abren el paso entre ambientes.' },
-  { id: 'planta', nombre: 'Planta con medidas', img: 'f_planta.png', titulo: 'Planta con medidas reales',
+  { id: 'planta', nombre: 'Planta con medidas', img: 'f_planta.png',
+    titulo: 'Planta con medidas reales',
     texto: 'Mira cada ambiente desde arriba con las cotas de cada pared y cada mueble. Cambia tamaño, color y acabado en un clic.' },
-  { id: 'recorrido', nombre: 'Recorrido', img: 'f_recorrido.png', titulo: 'Camina por dentro',
+  { id: 'recorrido', nombre: 'Recorrido', img: 'f_recorrido.png',
+    titulo: 'Camina por dentro',
     texto: 'Recorre el ambiente a la altura de los ojos. No atraviesas paredes ni muebles, así compruebas si de verdad se puede pasar.' },
-  { id: 'presupuesto', nombre: 'Presupuesto', img: 'f_presupuesto.png', titulo: 'Presupuesto en soles',
+  { id: 'presupuesto', nombre: 'Presupuesto', img: 'f_presupuesto.png',
+    titulo: 'Presupuesto en soles',
     texto: 'Calcula pintura, cerámico, zócalo y muebles con precios en soles. Edita los precios y exporta a Excel o a un informe PDF.' },
-  { id: 'muebles', nombre: 'Diseñador de muebles', img: 'f_muebles.png', titulo: 'Arma tus propios muebles',
+  { id: 'muebles', nombre: 'Diseñador de muebles', img: 'f_muebles.png',
+    titulo: 'Arma tus propios muebles',
     texto: 'Si no está en el catálogo, ármalo con cajas, cilindros y barras medidos en centímetros. También importas modelos 3D .glb o .gltf.' },
-  { id: 'noche', nombre: 'Modo noche', img: 'f_noche.png', titulo: 'Luz de día y de noche',
+  { id: 'noche', nombre: 'Modo noche', img: 'f_noche.png',
+    titulo: 'Luz de día y de noche',
     texto: 'Coloca lámparas y la luz del sol que entra por las ventanas. Apaga el sol para ver si la iluminación alcanza de noche.' },
 ];
+
 const pasos = [
   { n: 1, t: 'Dibuja el ambiente', d: 'Escribe el ancho, largo y alto en metros, o empieza desde una plantilla.' },
   { n: 2, t: 'Amuébla­lo', d: 'Arrastra muebles del catálogo; el imán los pega a las paredes con su tamaño real.' },
   { n: 3, t: 'Obtén el presupuesto', d: 'Mira el metrado y el costo en soles, y expórtalo en PDF cuando quieras.' },
 ];
+
 const publico = [
   { t: 'Familias que construyen o remodelan', d: 'Prueban la distribución y saben cuánto material comprar antes de ir a la ferretería.' },
   { t: 'Maestros de obra y contratistas', d: 'Le muestran al cliente cómo quedará el ambiente y entregan el presupuesto en PDF.' },
   { t: 'Tiendas y fabricantes de muebles', d: 'Comprueban con el cliente si el mueble entra, con sus medidas reales y en su color.' },
 ];
+
 const casos = [
   { t: 'Una familia en Juliaca', d: 'Probó tres distribuciones de su sala-comedor antes de comprar, y ajustó el presupuesto a lo que tenía.' },
   { t: 'Un maestro de obra', d: 'Presentó a su cliente el dormitorio en 3D y el metrado de pintura y cerámico en una sola reunión.' },
   { t: 'Una mueblería', d: 'Mostró al comprador cómo se vería el ropero a medida dentro de su cuarto, con las medidas exactas.' },
 ];
+
 const faqs = [
   { q: '¿Es gratis?', a: 'Sí. Space Cat se descarga e instala sin costo desde esta página.' },
   { q: '¿Necesito internet?', a: 'Solo para descargarla. Después funciona sin conexión: tus proyectos y el presupuesto se guardan en tu computadora.' },
   { q: '¿En qué equipos funciona?', a: 'En Windows 10 y 11 de 64 bits. Con 4 GB de memoria ya funciona; 8 GB es lo recomendado.' },
-  { q: '¿Por qué Windows dice «Windows protegió su PC»?', a: 'Porque el instalador aún no tiene firma digital, no porque tenga un problema. Pulsa «Más información» y luego «Ejecutar de todas formas».' },
-  { q: '¿Dónde se guardan mis proyectos?', a: 'En tu propia computadora. También puedes exportar cada proyecto como un archivo para abrirlo en otra máquina.' },
+  { q: '¿Por qué Windows dice «Windows protegió su PC»?', a: 'Porque el instalador todavía no tiene firma digital, no porque tenga un problema. Pulsa «Más información» y luego «Ejecutar de todas formas».' },
+  { q: '¿Dónde se guardan mis proyectos?', a: 'En tu propia computadora, en la carpeta de tu usuario. También puedes exportar cada proyecto como un archivo para abrirlo en otra máquina.' },
   { q: '¿Los precios del presupuesto son reales?', a: 'Son precios referenciales en soles que puedes cambiar; se guardan para todos tus proyectos.' },
 ];
 ---
@@ -47,18 +57,18 @@ const faqs = [
   title="Space Cat — Diseña tu casa en 3D con medidas reales"
   description="Space Cat es una aplicación gratuita para Windows: dibuja tus ambientes con medidas reales, amuéblalos en 3D y obtén el presupuesto en soles. Funciona sin internet."
 >
-  <!-- ===== BARRA ===== -->
-  <header class="sticky top-0 z-40 border-b border-[var(--color-line)] bg-[rgba(251,250,247,.82)] backdrop-blur">
-    <div class="contenedor flex items-center justify-between py-3.5">
+  <!-- ======================= BARRA ======================= -->
+  <header class="sticky top-0 z-40 border-b border-[var(--color-borde)] bg-[rgba(8,11,24,.72)] backdrop-blur">
+    <div class="contenedor flex items-center justify-between py-3">
       <a href="#" class="flex items-center gap-2.5">
-        <img src={`${base}/img/cat_ink.png`} alt="" width="24" height="33" class="h-8 w-auto" />
-        <span class="display text-xl font-600 text-[var(--color-ink)]">Space&nbsp;Cat</span>
+        <img src={`${base}/img/cat_blanco.png`} alt="" width="26" height="36" class="h-9 w-auto" />
+        <span class="display text-lg font-700 tracking-tight text-white">Space&nbsp;Cat</span>
       </a>
-      <nav aria-label="Secciones" class="hidden items-center gap-7 text-sm font-500 text-[var(--color-ink2)] md:flex">
-        <a href="#funciones" class="hover:text-[var(--color-ink)]">Funciones</a>
-        <a href="#como" class="hover:text-[var(--color-ink)]">Cómo funciona</a>
-        <a href="#descargas" class="hover:text-[var(--color-ink)]">Descargas</a>
-        <a href="#ayuda" class="hover:text-[var(--color-ink)]">Ayuda</a>
+      <nav aria-label="Secciones" class="hidden items-center gap-6 text-sm text-[#b9c0dc] md:flex">
+        <a href="#funciones" class="hover:text-white">Funciones</a>
+        <a href="#como" class="hover:text-white">Cómo funciona</a>
+        <a href="#descargas" class="hover:text-white">Descargas</a>
+        <a href="#ayuda" class="hover:text-white">Ayuda</a>
         <a href="#descargas" class="btn btn-primario !py-2 !px-4 text-sm">Descargar</a>
       </nav>
       <a href="#descargas" class="btn btn-primario !py-2 !px-4 text-sm md:hidden">Descargar</a>
@@ -66,212 +76,219 @@ const faqs = [
   </header>
 
   <main id="contenido">
-    <!-- ===== HÉROE ===== -->
-    <section class="contenedor grid items-center gap-10 py-14 md:grid-cols-[1.05fr_1fr] md:py-20">
-      <div class="reveal">
-        <span class="eyebrow">Diseño de interiores en 3D · a escala real</span>
-        <h1 class="mt-5 text-[2.6rem] font-600 leading-[1.02] text-[var(--color-ink)] sm:text-6xl">
-          Diseña tu casa antes de <span class="italic text-[var(--color-azul)]">comprar</span> un solo mueble.
+    <!-- ======================= PORTADA ======================= -->
+    <section class="contenedor grid items-center gap-10 py-16 md:grid-cols-[1.1fr_.9fr] md:py-24">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full border border-[var(--color-borde)] bg-white/5 px-3 py-1 text-xs font-500 text-[var(--color-lavanda)]">
+          ● Versión {version} · Windows 10 u 11
+        </span>
+        <h1 class="mt-5 text-4xl font-700 leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Diseña tu casa antes de comprar un solo mueble.
         </h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-ink2)]">
-          Space Cat es una aplicación gratuita para Windows. Dibuja cada ambiente con sus
-          medidas reales, amuéblalo en 3D y mira cuánto cuesta en soles. Todo funciona sin internet.
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-[#b9c0dc]">
+          Space Cat es una aplicación gratuita para Windows. Dibuja cada ambiente con
+          sus medidas reales, amuéblalo en 3D y mira cuánto cuesta en soles. Todo
+          funciona sin internet.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#descargas" class="btn btn-primario">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Descargar para Windows
           </a>
-          <a href="#funciones" class="btn btn-fantasma">Ver qué hace</a>
+          <a href="#funciones" class="btn btn-secundario">Ver qué hace</a>
         </div>
-        <p class="mt-4 text-sm text-[var(--color-ink2)]">Versión {version} · gratis · trae Java incluido, no configuras nada.</p>
+        <p class="mt-4 text-sm text-[#8891b5]">Instalador único · trae Java incluido · sin configurar nada.</p>
       </div>
 
-      <div class="reveal relative">
-        <!-- línea de cota ámbar: el motivo del producto -->
-        <div class="absolute -left-4 top-6 bottom-6 hidden w-0 border-l-2 border-[var(--color-cota)] md:block" aria-hidden="true">
-          <span class="absolute -left-[7px] top-0 h-0 w-3 border-t-2 border-[var(--color-cota)]"></span>
-          <span class="absolute -left-[7px] bottom-0 h-0 w-3 border-t-2 border-[var(--color-cota)]"></span>
-          <span class="absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-[var(--color-bg)] px-1 text-xs font-600 text-[var(--color-cota)]" style="writing-mode:vertical-rl">a escala real</span>
+      <div class="cat-entra laminada">
+        <span class="registro tl"></span><span class="registro tr"></span>
+        <div class="relative px-8 pt-10 pb-6 text-center">
+          <img src={`${base}/img/cat_blanco.png`} alt="Logo de Space Cat: un gato en trazo" width="194" height="275" class="mx-auto h-60 w-auto" />
+          <div class="cota-v" aria-hidden="true"><span>a escala real</span></div>
+          <p class="display mt-5 text-2xl font-600 text-white">Space Cat</p>
         </div>
-        <div class="marco">
-          <img src={`${base}/img/f_3d.png`} alt="La casa de ejemplo vista en 3D dentro de Space Cat" width="1426" height="863" />
+        <div class="cartela">
+          <span>FSHF · Diseño de interiores 3D</span>
+          <span class="font-600 text-[var(--color-lavanda)]">v{version}</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== POR QUÉ (datos acotados) ===== -->
+    <!-- ======================= POR QUÉ (datos acotados) ======================= -->
     <section class="contenedor py-6">
-      <div class="grid gap-x-10 gap-y-8 border-y border-[var(--color-line)] py-9 sm:grid-cols-3">
+      <div class="grid gap-y-8 border-y border-[var(--color-borde)] py-8 sm:grid-cols-3 sm:gap-x-12">
         {[
           { t: 'Gratis', d: 'Sin costo ni suscripción. Descárgala y úsala.' },
           { t: 'Sin internet', d: 'Funciona offline; tus proyectos quedan en tu PC.' },
           { t: 'Soles reales', d: 'Metrado y presupuesto en soles que puedes editar.' },
         ].map((x) => (
-          <div class="dato">
-            <p class="display text-2xl font-600 text-[var(--color-ink)]">{x.t}</p>
-            <p class="mt-1.5 text-[var(--color-ink2)]">{x.d}</p>
+          <div class="medida-dato">
+            <p class="display text-xl font-600 text-white">{x.t}</p>
+            <p class="mt-1 text-sm text-[#b9c0dc]">{x.d}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- ===== FUNCIONES ===== -->
+    <!-- ======================= FUNCIONES ======================= -->
     <section id="funciones" class="contenedor py-16 md:py-24">
       <div class="max-w-2xl">
-        <span class="eyebrow">Qué puedes hacer</span>
-        <h2 class="mt-4 text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Lo que puedes hacer</h2>
-        <p class="mt-4 text-lg text-[var(--color-ink2)]">Todo con medidas reales: los muebles no se encima­n ni tapan puertas, y cada cambio actualiza el presupuesto.</p>
+        <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Lo que puedes hacer</h2>
+        <p class="mt-3 text-lg text-[#b9c0dc]">Todo con medidas reales: los muebles no se encima­n ni tapan puertas, y cada cambio actualiza el presupuesto.</p>
       </div>
 
-      <div class="ui top attached tabular menu !mt-8" style="flex-wrap:wrap">
-        {funciones.map((f, i) => (<a class={`item ${i === 0 ? 'active' : ''}`} data-tab={f.id}>{f.nombre}</a>))}
+      <div class="ui top attached tabular menu !mt-8 !border-[var(--color-borde)] !bg-transparent" style="flex-wrap:wrap">
+        {funciones.map((f, i) => (
+          <a class={`item ${i === 0 ? 'active' : ''}`} data-tab={f.id}>{f.nombre}</a>
+        ))}
       </div>
       {funciones.map((f, i) => (
-        <div class={`ui bottom attached tab segment ${i === 0 ? 'active' : ''}`} data-tab={f.id}>
-          <div class="grid items-center gap-7 md:grid-cols-[1.6fr_1fr]">
-            <div class="marco"><img src={`${base}/img/${f.img}`} alt={f.titulo} width="1426" height="863" loading="lazy" /></div>
+        <div class={`ui bottom attached tab segment !border-[var(--color-borde)] !bg-[var(--color-noche-700)] ${i === 0 ? 'active' : ''}`} data-tab={f.id}>
+          <div class="grid items-center gap-6 md:grid-cols-[1.6fr_1fr]">
+            <div class="marco-app">
+              <img src={`${base}/img/${f.img}`} alt={f.titulo} width="1426" height="863" loading="lazy" />
+            </div>
             <div>
-              <h3 class="display text-2xl font-600 text-[var(--color-ink)]">{f.titulo}</h3>
-              <p class="mt-3 text-[var(--color-ink2)]">{f.texto}</p>
+              <h3 class="display text-2xl font-600 text-white">{f.titulo}</h3>
+              <p class="mt-3 text-[#b9c0dc]">{f.texto}</p>
             </div>
           </div>
         </div>
       ))}
     </section>
 
-    <!-- ===== CÓMO FUNCIONA ===== -->
-    <section id="como" class="bg-[var(--color-bg2)] py-16 md:py-24">
-      <div class="contenedor">
-        <div class="max-w-2xl">
-          <span class="eyebrow">En tres pasos</span>
-          <h2 class="mt-4 text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Cómo funciona</h2>
-          <p class="mt-4 text-lg text-[var(--color-ink2)]">De la habitación vacía al presupuesto.</p>
-        </div>
-        <ol class="mt-10 grid gap-6 sm:grid-cols-3">
-          {pasos.map((p) => (
-            <li class="tarjeta p-7">
-              <span class="display grid h-12 w-12 place-items-center rounded-xl bg-[var(--color-azul)] text-2xl font-600 text-white">{p.n}</span>
-              <h3 class="display mt-5 text-xl font-600 text-[var(--color-ink)]">{p.t}</h3>
-              <p class="mt-2 text-[var(--color-ink2)]">{p.d}</p>
-            </li>
-          ))}
-        </ol>
+    <!-- ======================= CÓMO FUNCIONA ======================= -->
+    <section id="como" class="contenedor py-16 md:py-20">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Cómo funciona</h2>
+        <p class="mt-3 text-lg text-[#b9c0dc]">De la habitación vacía al presupuesto, en tres pasos.</p>
       </div>
+      <ol class="mt-10 grid gap-6 sm:grid-cols-3">
+        {pasos.map((p) => (
+          <li class="vidrio p-6">
+            <span class="display grid h-11 w-11 place-items-center rounded-xl bg-[var(--color-lavanda-2)] text-xl font-700 text-[#140e2e]">{p.n}</span>
+            <h3 class="display mt-4 text-lg font-600 text-white">{p.t}</h3>
+            <p class="mt-2 text-sm text-[#b9c0dc]">{p.d}</p>
+          </li>
+        ))}
+      </ol>
     </section>
 
-    <!-- ===== PARA QUIÉN ===== -->
-    <section class="contenedor py-16 md:py-20">
-      <div class="max-w-2xl"><h2 class="text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Para quién es</h2></div>
-      <div class="mt-9 grid gap-8 md:grid-cols-3">
+    <!-- ======================= PARA QUIÉN ======================= -->
+    <section class="contenedor py-10">
+      <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Para quién es</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
         {publico.map((x) => (
-          <div class="dato">
-            <h3 class="display text-xl font-600 text-[var(--color-ink)]">{x.t}</h3>
-            <p class="mt-2 text-[var(--color-ink2)]">{x.d}</p>
+          <div class="border-t-2 border-[var(--color-lavanda)] pt-4">
+            <h3 class="display text-lg font-600 text-white">{x.t}</h3>
+            <p class="mt-2 text-sm text-[#b9c0dc]">{x.d}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- ===== CASOS ===== -->
+    <!-- ======================= CASOS DE USO ======================= -->
     <section class="contenedor py-10">
-      <h2 class="text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Cómo la usan</h2>
-      <div class="mt-9 grid gap-6 md:grid-cols-3">
+      <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Cómo la usan</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
         {casos.map((x) => (
-          <figure class="tarjeta p-7">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="text-[var(--color-cota)]" aria-hidden="true"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6c0 2-1 4-4 4m14-6h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6c0 2-1 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg>
-            <blockquote class="mt-4 text-[var(--color-ink)]">{x.d}</blockquote>
-            <figcaption class="mt-4 text-sm font-600 text-[var(--color-azul2)]">{x.t}</figcaption>
+          <figure class="vidrio p-6">
+            <blockquote class="text-[#dfe3f2]">“{x.d}”</blockquote>
+            <figcaption class="mt-4 text-sm font-600 text-[var(--color-cian)]">{x.t}</figcaption>
           </figure>
         ))}
       </div>
-      <p class="mt-4 text-xs text-[var(--color-ink2)]">Ejemplos de uso representativos.</p>
+      <p class="mt-4 text-xs text-[#8891b5]">Ejemplos de uso representativos.</p>
     </section>
 
-    <!-- ===== DESCARGAS ===== -->
+    <!-- ======================= DESCARGAS ======================= -->
     <section id="descargas" class="contenedor py-16 md:py-24">
       <div class="max-w-2xl">
-        <span class="eyebrow">Gratis para Windows</span>
-        <h2 class="mt-4 text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Descargar</h2>
-        <p class="mt-4 text-lg text-[var(--color-ink2)]">El instalador es el único método: trae todo incluido y no necesitas instalar nada más.</p>
+        <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Descargar</h2>
+        <p class="mt-3 text-lg text-[#b9c0dc]">Gratis, para Windows. El instalador es el único método: trae todo incluido y no necesitas instalar nada más.</p>
       </div>
 
-      <div class="mt-9 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
-        <div class="tarjeta p-7">
+      <div class="mt-8 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+        <div class="vidrio p-6">
           <div class="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p class="display text-xl font-600 text-[var(--color-ink)]">Instalador para Windows</p>
-              <p class="mt-1 text-sm text-[var(--color-ink2)]">SC-Setup-{version}.exe · ~65 MB · Windows 10 u 11 de 64 bits</p>
+              <p class="display text-xl font-600 text-white">Instalador para Windows</p>
+              <p class="mt-1 text-sm text-[#8891b5]">SC-Setup-{version}.exe · ~65 MB · Windows 10 u 11 de 64 bits</p>
             </div>
             <a href="https://github.com/alex123floresc-sketch/Space_Cat/releases/latest" class="btn btn-primario">Descargar .exe</a>
           </div>
-          <div class="mt-5 rounded-xl border-l-4 border-[var(--color-cota)] bg-[var(--color-bg2)] p-4 text-sm text-[var(--color-ink2)]">
-            Al abrir el instalador, Windows puede mostrar <em>«Windows protegió su PC»</em> porque el
-            programa aún no tiene firma digital. Haz clic en <em>Más información</em> y luego en
+          <div class="mt-5 rounded-lg border-l-4 border-[var(--color-cian)] bg-white/5 p-4 text-sm text-[#b9c0dc]">
+            Al abrir el instalador, Windows puede mostrar <em>«Windows protegió su PC»</em> porque
+            el programa aún no tiene firma digital. Haz clic en <em>Más información</em> y luego en
             <em>Ejecutar de todas formas</em>.
           </div>
           <div class="ui accordion !mt-4">
-            <div class="title !text-sm !font-600"><i class="dropdown icon"></i> Comprobar que la descarga es original (SHA-256)</div>
-            <div class="content !text-sm"><p>Cuando el instalador esté publicado, aquí irá su huella SHA-256 para que verifiques el archivo.</p></div>
+            <div class="title !text-[#b9c0dc]"><i class="dropdown icon"></i> Comprobar que la descarga es original (SHA-256)</div>
+            <div class="content !text-sm !text-[#8891b5]">
+              <p>Cuando el instalador esté publicado, aquí irá su huella SHA-256 para que verifiques el archivo.</p>
+            </div>
           </div>
         </div>
 
         <div>
-          <h3 class="display text-lg font-600 text-[var(--color-ink)]">Manuales</h3>
+          <h3 class="display text-lg font-600 text-white">Manuales</h3>
           <ul class="mt-4 space-y-3">
             <li>
-              <a href={`${base}/descargas/Space_Cat_Manual_de_Usuario.pdf`} class="tarjeta flex items-center justify-between p-4 transition hover:border-[var(--color-azul)]">
-                <span><span class="font-600 text-[var(--color-ink)]">Manual de usuario</span><br /><span class="text-xs text-[var(--color-ink2)]">PDF · cómo usar cada función</span></span>
-                <span class="rounded-md bg-[var(--color-azul)] px-2.5 py-1 text-xs font-600 text-white">Abrir</span>
+              <a href={`${base}/descargas/Space_Cat_Manual_de_Usuario.pdf`} class="vidrio flex items-center justify-between p-4 transition hover:bg-white/10">
+                <span><span class="font-600 text-white">Manual de usuario</span><br /><span class="text-xs text-[#8891b5]">PDF · cómo usar cada función</span></span>
+                <span class="rounded-md bg-[var(--color-lavanda-2)] px-2.5 py-1 text-xs font-600 text-[#140e2e]">Abrir</span>
               </a>
             </li>
             <li>
-              <a href={`${base}/descargas/Space_Cat_Manual_de_Instalacion.pdf`} class="tarjeta flex items-center justify-between p-4 transition hover:border-[var(--color-azul)]">
-                <span><span class="font-600 text-[var(--color-ink)]">Manual de instalación</span><br /><span class="text-xs text-[var(--color-ink2)]">PDF · instalar paso a paso</span></span>
-                <span class="rounded-md bg-[var(--color-azul)] px-2.5 py-1 text-xs font-600 text-white">Abrir</span>
+              <a href={`${base}/descargas/Space_Cat_Manual_de_Instalacion.pdf`} class="vidrio flex items-center justify-between p-4 transition hover:bg-white/10">
+                <span><span class="font-600 text-white">Manual de instalación</span><br /><span class="text-xs text-[#8891b5]">PDF · instalar paso a paso</span></span>
+                <span class="rounded-md bg-[var(--color-lavanda-2)] px-2.5 py-1 text-xs font-600 text-[#140e2e]">Abrir</span>
               </a>
             </li>
           </ul>
-          <h3 class="display mt-8 text-lg font-600 text-[var(--color-ink)]">Requisitos</h3>
+
+          <h3 class="display mt-8 text-lg font-600 text-white">Requisitos</h3>
           <table class="mt-4 w-full text-sm">
-            <thead class="text-[var(--color-ink2)]"><tr><th class="py-2 text-left font-500"></th><th class="py-2 text-left font-500">Mínimo</th><th class="py-2 text-left font-500">Recomendado</th></tr></thead>
-            <tbody class="text-[var(--color-ink2)]">
-              <tr class="border-t border-[var(--color-line)]"><th class="py-2 text-left font-600 text-[var(--color-ink)]">Sistema</th><td>Windows 10, 64 bits</td><td>Windows 11</td></tr>
-              <tr class="border-t border-[var(--color-line)]"><th class="py-2 text-left font-600 text-[var(--color-ink)]">Memoria</th><td>4 GB</td><td>8 GB</td></tr>
-              <tr class="border-t border-[var(--color-line)]"><th class="py-2 text-left font-600 text-[var(--color-ink)]">Video</th><td>Gráficos con 3D</td><td>Tarjeta dedicada</td></tr>
-              <tr class="border-t border-[var(--color-line)]"><th class="py-2 text-left font-600 text-[var(--color-ink)]">Disco</th><td>300 MB</td><td>1 GB</td></tr>
+            <thead class="text-[#8891b5]"><tr><th class="py-2 text-left font-500"></th><th class="py-2 text-left font-500">Mínimo</th><th class="py-2 text-left font-500">Recomendado</th></tr></thead>
+            <tbody class="text-[#b9c0dc]">
+              <tr class="border-t border-[var(--color-borde)]"><th class="py-2 text-left font-600 text-white">Sistema</th><td>Windows 10, 64 bits</td><td>Windows 11</td></tr>
+              <tr class="border-t border-[var(--color-borde)]"><th class="py-2 text-left font-600 text-white">Memoria</th><td>4 GB</td><td>8 GB</td></tr>
+              <tr class="border-t border-[var(--color-borde)]"><th class="py-2 text-left font-600 text-white">Video</th><td>Gráficos con 3D</td><td>Tarjeta dedicada</td></tr>
+              <tr class="border-t border-[var(--color-borde)]"><th class="py-2 text-left font-600 text-white">Disco</th><td>300 MB</td><td>1 GB</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- ===== AYUDA / FAQ ===== -->
-    <section id="ayuda" class="bg-[var(--color-bg2)] py-16 md:py-20">
-      <div class="contenedor">
-        <div class="max-w-2xl">
-          <h2 class="text-4xl font-600 text-[var(--color-ink)] sm:text-5xl">Preguntas frecuentes</h2>
-          <p class="mt-4 text-lg text-[var(--color-ink2)]">Si tu duda no está aquí, escríbenos por WhatsApp.</p>
-        </div>
-        <div class="ui accordion !mt-8 max-w-3xl">
-          {faqs.map((f, i) => (
-            <>
-              <div class={`title display !text-lg !font-600 ${i === 0 ? 'active' : ''}`}><i class="dropdown icon"></i>{f.q}</div>
-              <div class={`content ${i === 0 ? 'active' : ''}`}><p class="pb-2">{f.a}</p></div>
-            </>
-          ))}
-        </div>
+    <!-- ======================= AYUDA / FAQ ======================= -->
+    <section id="ayuda" class="contenedor py-16 md:py-20">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-700 tracking-tight text-white sm:text-4xl">Preguntas frecuentes</h2>
+        <p class="mt-3 text-lg text-[#b9c0dc]">Si tu duda no está aquí, escríbenos por WhatsApp.</p>
+      </div>
+      <div class="ui accordion !mt-8 max-w-3xl">
+        {faqs.map((f, i) => (
+          <>
+            <div class={`title display !text-lg !font-600 !text-white ${i === 0 ? 'active' : ''}`}>
+              <i class="dropdown icon"></i>{f.q}
+            </div>
+            <div class={`content !text-[#b9c0dc] ${i === 0 ? 'active' : ''}`}>
+              <p class="pb-2">{f.a}</p>
+            </div>
+          </>
+        ))}
       </div>
     </section>
 
-    <!-- ===== CONTACTO ===== -->
-    <section id="contacto" class="contenedor py-16">
-      <div class="tarjeta flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
+    <!-- ======================= CONTACTO ======================= -->
+    <section id="contacto" class="contenedor py-14">
+      <div class="vidrio flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
         <div>
-          <h2 class="display text-3xl font-600 text-[var(--color-ink)]">¿Tienes una consulta?</h2>
-          <p class="mt-2 text-[var(--color-ink2)]">Escríbenos por WhatsApp y te ayudamos a instalarla o a usarla.</p>
+          <h2 class="display text-2xl font-600 text-white">¿Tienes una consulta?</h2>
+          <p class="mt-2 text-[#b9c0dc]">Escríbenos por WhatsApp y te ayudamos a instalarla o a usarla.</p>
         </div>
-        <a href={whatsapp} target="_blank" rel="noopener" class="btn text-white" style="background:#25d366">
+        <a href={whatsapp} target="_blank" rel="noopener" class="btn btn-primario">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.33 4.95L2 22l5.3-1.38a9.86 9.86 0 004.74 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0012.04 2zm5.8 14.12c-.25.69-1.44 1.32-1.98 1.36-.53.05-1.02.24-3.45-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.25.6.84 2.08.91 2.23.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.17.29.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.4.28.14.44.12.6-.07.17-.19.69-.8.87-1.08.18-.29.37-.24.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.33.07.12.07.69-.18 1.38z"/></svg>
           Escribir por WhatsApp
         </a>
@@ -279,25 +296,39 @@ const faqs = [
     </section>
   </main>
 
-  <!-- ===== PIE (equipo discreto) ===== -->
-  <footer class="border-t border-[var(--color-line)]">
-    <div class="contenedor flex flex-col items-center justify-between gap-5 py-10 text-center sm:flex-row sm:text-left">
-      <div class="flex items-center gap-2.5">
-        <img src={`${base}/img/cat_ink.png`} alt="" width="22" height="31" class="h-8 w-auto" />
-        <div>
-          <p class="display text-lg font-600 text-[var(--color-ink)]">Space Cat</p>
-          <p class="text-sm text-[var(--color-ink2)]">Diseño de interiores 3D · gratis para Windows</p>
+  <!-- ======================= PIE ======================= -->
+  <footer class="border-t border-[var(--color-borde)] bg-[rgba(8,11,24,.6)]">
+    <div class="contenedor grid gap-8 py-12 md:grid-cols-[2fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <img src={`${base}/img/cat_blanco.png`} alt="" width="22" height="31" class="h-8 w-auto" />
+          <span class="display text-lg font-700 text-white">Space Cat</span>
+        </div>
+        <p class="mt-3 max-w-sm text-sm text-[#8891b5]">Diseño de interiores en 3D con medidas reales y presupuesto en soles. Para Windows, sin internet.</p>
+        <div class="mt-4 flex gap-3" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-full border border-[var(--color-borde)] text-[#b9c0dc] hover:text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9V11H7.5v3H10v8h3z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-full border border-[var(--color-borde)] text-[#b9c0dc] hover:text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="TikTok" class="grid h-9 w-9 place-items-center rounded-full border border-[var(--color-borde)] text-[#b9c0dc] hover:text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2 1.5 3.6 3.5 4v2.6c-1.3 0-2.5-.4-3.5-1v6.1c0 3-2.4 5.3-5.3 5.3S5.4 17.7 5.4 14.7c0-2.8 2.1-5 4.8-5.3v2.7c-1.2.2-2.1 1.3-2.1 2.6 0 1.5 1.2 2.6 2.6 2.6s2.6-1.1 2.6-2.6V3H16z"/></svg></a>
         </div>
       </div>
-      <nav aria-label="Enlaces del pie" class="flex flex-wrap items-center justify-center gap-5 text-sm text-[var(--color-ink2)]">
-        <a href="#funciones" class="hover:text-[var(--color-ink)]">Funciones</a>
-        <a href="#descargas" class="hover:text-[var(--color-ink)]">Descargas</a>
-        <a href="#ayuda" class="hover:text-[var(--color-ink)]">Ayuda</a>
-        <a href={whatsapp} target="_blank" rel="noopener" class="hover:text-[var(--color-ink)]">WhatsApp</a>
+      <nav aria-label="Enlaces" class="text-sm">
+        <p class="font-600 text-[var(--color-lavanda)]">Producto</p>
+        <ul class="mt-3 space-y-2 text-[#b9c0dc]">
+          <li><a href="#funciones" class="hover:text-white">Funciones</a></li>
+          <li><a href="#como" class="hover:text-white">Cómo funciona</a></li>
+          <li><a href="#descargas" class="hover:text-white">Descargas</a></li>
+          <li><a href="#ayuda" class="hover:text-white">Preguntas frecuentes</a></li>
+        </ul>
       </nav>
+      <div class="text-sm">
+        <p class="font-600 text-[var(--color-lavanda)]">FSHF</p>
+        <img src={`${base}/img/fshf_logo.png`} alt="FSHF" width="120" height="39" class="mt-3 h-9 w-auto opacity-90" />
+        <p class="mt-3 text-[#8891b5]">Juliaca, Puno, Perú</p>
+        <p class="mt-1 text-[#8891b5]">Funciona sin internet y no recoge tus datos.</p>
+      </div>
     </div>
-    <div class="border-t border-[var(--color-line)]">
-      <div class="contenedor py-5 text-center text-xs text-[var(--color-ink2)] sm:text-left">© 2026 FSHF · Juliaca, Puno, Perú · Funciona sin internet y no recoge tus datos.</div>
+    <div class="border-t border-[var(--color-borde)]">
+      <div class="contenedor py-5 text-xs text-[#8891b5]">© 2026 FSHF. Space Cat es un software de autoría original de sus desarrolladores.</div>
     </div>
   </footer>
 </Base>
