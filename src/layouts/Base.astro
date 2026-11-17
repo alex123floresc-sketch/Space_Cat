@@ -2,6 +2,7 @@
 import '../styles/global.css';
 const { title, description } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = 'https://alex123floresc-sketch.github.io/Space_Cat/';
 ---
 <!doctype html>
 <html lang="es">
@@ -10,45 +11,61 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#0f2a52" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={site} />
+    <meta property="og:image" content={`${site}img/casa.png`} />
+    <meta property="og:locale" content="es_PE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={site} />
     <link rel="icon" href={`${base}/favicon.png`} type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
     <!-- Fomantic UI: solo los componentes de acordeón y pestañas -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css" />
   </head>
   <body>
-    <div class="cielo" aria-hidden="true"></div>
-    <div class="estrellas" aria-hidden="true"></div>
-    <a
-      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 btn btn-primario"
-      href="#contenido">Ir al contenido</a
-    >
+    <a class="saltar" href="#contenido">Ir al contenido</a>
     <slot />
 
     <!-- jQuery + Fomantic JS al final, para el acordeón y las pestañas -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
-      is:inline></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"
-      is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js" is:inline></script>
     <script is:inline>
       window.addEventListener('load', () => {
         if (window.jQuery) {
           jQuery('.ui.accordion').accordion({ exclusive: false });
           jQuery('.ui.menu .item').tab();
         }
+      });
+      // Ampliar capturas
+      document.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-ampliar]');
+        const visor = document.getElementById('visor');
+        if (!b || !visor || typeof visor.showModal !== 'function') return;
+        visor.querySelector('img').src = b.dataset.ampliar;
+        visor.querySelector('img').alt = b.querySelector('img')?.alt || '';
+        visor.showModal();
+      });
+      document.getElementById('visor')?.addEventListener('click', (e) => {
+        if (e.target.id === 'visor') e.target.close();
+      });
+      // Menú en móvil
+      const boton = document.querySelector('.menu-movil');
+      const nav = document.getElementById('nav-principal');
+      boton?.addEventListener('click', () => {
+        const abierto = boton.getAttribute('aria-expanded') !== 'true';
+        boton.setAttribute('aria-expanded', abierto);
+        nav.classList.toggle('abierto', abierto);
+      });
+      nav?.addEventListener('click', (e) => {
+        if (e.target.closest('a')) { boton.setAttribute('aria-expanded', 'false'); nav.classList.remove('abierto'); }
       });
     </script>
   </body>
