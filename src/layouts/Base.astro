@@ -8,6 +8,7 @@ const site = 'https://alex123floresc-sketch.github.io/Space_Cat/';
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -56,6 +57,32 @@ const site = 'https://alex123floresc-sketch.github.io/Space_Cat/';
       document.getElementById('visor')?.addEventListener('click', (e) => {
         if (e.target.id === 'visor') e.target.close();
       });
+      // Barra con sombra al bajar
+      const barra = document.querySelector('.barra');
+      const sombra = () => barra?.classList.toggle('bajando', scrollY > 8);
+      addEventListener('scroll', sombra, { passive: true });
+      sombra();
+      // Títulos y pasos se marcan al entrar en pantalla (la animación está en el CSS)
+      document.querySelectorAll('.pasos').forEach((ol) =>
+        ol.querySelectorAll(':scope > li').forEach((li, i) => li.style.setProperty('--i', i)));
+      const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const contar = (el) => {
+        if (quieto) return;
+        el.querySelectorAll('[data-contar]').forEach((n) => {
+          const fin = Number(n.dataset.contar), t0 = performance.now();
+          const paso = (t) => {
+            const x = Math.min(1, (t - t0) / 1100);
+            n.textContent = Math.round(fin * (1 - Math.pow(1 - x, 3)));
+            if (x < 1) requestAnimationFrame(paso);
+          };
+          requestAnimationFrame(paso);
+        });
+      };
+      const marcar = (el) => { el.classList.add('visto'); if (el.matches('.datos')) contar(el); };
+      const io = 'IntersectionObserver' in window
+        ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { marcar(e.target); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' })
+        : null;
+      document.querySelectorAll('.seccion, .pasos, .datos').forEach((el) => (io ? io.observe(el) : marcar(el)));
       // Menú en móvil
       const boton = document.querySelector('.menu-movil');
       const nav = document.getElementById('nav-principal');

@@ -71,6 +71,7 @@ const faqs = [
       </a>
       <button class="menu-movil" type="button" aria-expanded="false" aria-controls="nav-principal">Menú</button>
       <nav id="nav-principal" aria-label="Secciones">
+        <a href="#casa-3d">Casa en 3D</a>
         <a href="#funciones">Funciones</a>
         <a href="#como">Cómo funciona</a>
         <a href="#instalar">Instalar</a>
@@ -94,7 +95,7 @@ const faqs = [
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Descargar para Windows
           </a>
-          <a href="#funciones" class="btn btn-linea">Ver qué hace</a>
+          <a href="#casa-3d" class="btn btn-linea">Ver la casa en 3D</a>
         </div>
         <p class="nota">Versión {version} · un solo instalador, con todo incluido.</p>
       </div>
@@ -115,15 +116,47 @@ const faqs = [
 
     <section class="contenedor">
       <ul class="datos">
-        <li><strong>36</strong>muebles con medidas que puedes cambiar</li>
-        <li><strong>4</strong>pisos por casa, con techo y fachada</li>
+        <li><strong data-contar="36">36</strong>muebles con medidas que puedes cambiar</li>
+        <li><strong data-contar="4">4</strong>pisos por casa, con techo y fachada</li>
         <li><strong>S/</strong>metrado y presupuesto en soles</li>
         <li><strong>0</strong>conexiones a internet necesarias</li>
       </ul>
     </section>
 
+    <!-- CASA EN 3D -->
+    <section id="casa-3d" class="contenedor seccion">
+      <h2>La casa de ejemplo, en 3D</h2>
+      <p class="entrada">
+        Es la misma casa que trae Space Cat: dos pisos sobre 9 × 9 m, con sus muebles a escala.
+        <span class="solo-raton">Gírala arrastrando, acércala con la rueda y pasa el cursor por un ambiente para ver sus medidas.</span>
+        <span class="solo-tactil">Gírala con un dedo y pellizca para acercarla.</span>
+      </p>
+      <div class="visor3d" data-visor3d>
+        <div class="visor3d-escenario">
+          <div class="visor3d-lienzo"></div>
+          <div class="visor3d-tip" hidden></div>
+          <div class="visor3d-cargando" aria-hidden="true"><span></span>Levantando muros…</div>
+          <img class="visor3d-respaldo" src={img('casa.png')} alt="Casa de ejemplo de dos pisos en Space Cat" width="1426" height="863" loading="lazy" />
+        </div>
+        <div class="visor3d-panel">
+          <div class="visor3d-controles" role="group" aria-label="Pisos visibles">
+            <button type="button" data-vista="todo" aria-pressed="true">Todo</button>
+            <button type="button" data-vista="0" aria-pressed="false">Piso 1</button>
+            <button type="button" data-vista="1" aria-pressed="false">Piso 2</button>
+          </div>
+          <div class="visor3d-controles" role="group" aria-label="Opciones de la vista">
+            <button type="button" data-techo aria-pressed="false">Techo</button>
+            <button type="button" data-girar aria-pressed="true">Girar</button>
+            <button type="button" data-repetir>Repetir</button>
+          </div>
+          <ul class="visor3d-lista" aria-label="Ambientes de la casa"></ul>
+          <p class="visor3d-nota">Así se ve en la aplicación con la vista Casa. Ahí además puedes recorrerla por dentro.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- FUNCIONES -->
-    <section id="funciones" class="contenedor seccion">
+    <section id="funciones" class="contenedor seccion" style="padding-top:0">
       <h2>Lo que puedes hacer</h2>
       <p class="entrada">Todo a escala real: los muebles no se enciman ni tapan puertas, y cada cambio actualiza el presupuesto.</p>
       <div class="ui top attached tabular menu pestanas">
@@ -268,3 +301,22 @@ const faqs = [
     <img alt="" />
   </dialog>
 </Base>
+
+<script>
+  // La vista 3D se carga solo cuando el visitante llega cerca de la sección.
+  const raiz = document.querySelector('[data-visor3d]');
+  if (raiz) {
+    const io = new IntersectionObserver(async ([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      try {
+        const { montar } = await import('../scripts/casa3d.js');
+        montar(raiz);
+      } catch (err) {
+        console.error(err);
+        raiz.classList.add('sin-webgl');
+      }
+    }, { rootMargin: '400px' });
+    io.observe(raiz);
+  }
+</script>

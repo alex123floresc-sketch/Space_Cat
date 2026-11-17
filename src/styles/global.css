@@ -269,3 +269,93 @@ img { max-width: 100%; height: auto; display: block; }
   .lamina { padding: 0; }
   .lamina .cota { display: none; }
 }
+
+/* =====================================================================
+   Casa en 3D
+   ===================================================================== */
+.visor3d { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; margin-top: 2.25rem; border: 1.5px solid var(--linea-fuerte); background: radial-gradient(120% 90% at 50% 20%, #1b4178 0%, var(--color-papel-3) 70%); }
+@media (max-width: 60rem) { .visor3d { grid-template-columns: 1fr; } }
+.visor3d-escenario { position: relative; min-height: clamp(22rem, 62vh, 40rem); overflow: hidden; }
+@media (max-width: 40rem) { .visor3d-escenario { min-height: 26rem; } }
+.visor3d-lienzo, .visor3d-lienzo canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.visor3d-lienzo canvas { cursor: grab; touch-action: pan-y; }
+.visor3d-lienzo canvas:active { cursor: grabbing; }
+.visor3d-respaldo { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.visor3d.sin-webgl .visor3d-respaldo { display: block; }
+.visor3d.sin-webgl .visor3d-cargando, .visor3d.sin-webgl .visor3d-controles { display: none; }
+
+.visor3d-cargando { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .9rem; color: var(--color-tinta-3); font-size: .95rem; transition: opacity .4s; pointer-events: none; }
+.visor3d-cargando span { width: 3.2rem; height: 3.2rem; border: 2px solid var(--linea-fuerte); border-top-color: var(--color-cota); border-radius: 50%; animation: girar .9s linear infinite; }
+.visor3d.listo .visor3d-cargando { opacity: 0; }
+@keyframes girar { to { transform: rotate(1turn); } }
+
+.visor3d-tip { position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; display: grid; gap: .1rem; padding: .55rem .75rem; background: rgb(11 33 68 / .94); border: 1.5px solid var(--color-cota); border-radius: 6px; font-size: .88rem; color: var(--color-tinta-2); white-space: nowrap; box-shadow: 0 12px 30px -12px rgb(0 0 0 / .6); }
+.visor3d-tip[hidden] { display: none; }
+.visor3d-tip b { font: 700 1rem var(--font-display); font-variation-settings: "wdth" 108; color: var(--color-tinta); }
+.visor3d-tip span { color: var(--color-cota); font-variant-numeric: tabular-nums; }
+.visor3d-tip small { color: var(--color-tinta-3); font-size: .8rem; }
+.visor3d-cota { position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none; font: 650 .85rem var(--font-display); font-variation-settings: "wdth" 100; color: var(--color-cota); background: rgb(11 33 68 / .85); padding: .1rem .45rem; border-radius: 3px; font-variant-numeric: tabular-nums; }
+.visor3d-cota[hidden] { display: none; }
+.visor3d.armado .visor3d-cota { animation: aparecer .5s ease-out; }
+@keyframes aparecer { from { opacity: 0; } }
+
+.visor3d-panel { border-left: 1.5px solid var(--linea-fuerte); background: rgb(11 33 68 / .55); padding: 1.1rem; display: flex; flex-direction: column; gap: .8rem; min-width: 0; }
+@media (max-width: 60rem) { .visor3d-panel { border-left: 0; border-top: 1.5px solid var(--linea-fuerte); } }
+
+.visor3d-controles { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+.visor3d-controles button { font: 600 .88rem var(--font-cuerpo); color: var(--color-tinta-2); background: transparent; border: 1.5px solid var(--linea-fuerte); border-radius: 6px; padding: .5rem .3rem; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
+.visor3d-controles button:hover { color: var(--color-tinta); border-color: var(--color-tinta-2); }
+.visor3d-controles button[aria-pressed="true"] { background: var(--color-cota); border-color: var(--color-cota); color: var(--color-papel-3); }
+.visor3d-lista { list-style: none; margin: .3rem 0 0; padding: 0; display: grid; align-content: start; flex: 1 1 0; min-height: 8rem; overflow: auto; }
+.visor3d-nivel { font: 700 .82rem var(--font-display); font-variation-settings: "wdth" 112; color: var(--color-cota); padding: .7rem 0 .3rem; border-bottom: 1px solid var(--linea); }
+@media (max-width: 60rem) { .visor3d-lista { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); column-gap: 1.2rem; flex: none; overflow: visible; } .visor3d-nivel { grid-column: 1 / -1; } }
+.visor3d-lista button { width: 100%; display: flex; justify-content: space-between; gap: .6rem; align-items: baseline; text-align: left; background: transparent; border: 0; border-bottom: 1px solid var(--linea); padding: .45rem .3rem; color: var(--color-tinta-2); font: 500 .9rem var(--font-cuerpo); cursor: pointer; transition: background-color .15s, opacity .2s; }
+.visor3d-lista button b { font-weight: 600; color: var(--color-tinta); }
+.visor3d-lista button span { color: var(--color-tinta-3); font-size: .82rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.visor3d-lista li.activo button { background: rgb(255 207 92 / .14); }
+.visor3d-lista li.activo button span { color: var(--color-cota); }
+.visor3d-lista li.apagado button { opacity: .38; }
+.visor3d-nota { margin: 0; font-size: .85rem; color: var(--color-tinta-3); line-height: 1.45; }
+.solo-tactil { display: none; }
+@media (hover: none) { .solo-raton { display: none; } .solo-tactil { display: inline; } }
+
+/* =====================================================================
+   Movimiento: la portada se arma al cargar, las secuencias (pasos) entran
+   en orden y cada título traza su línea de cota. Todo se apaga con
+   "reducir movimiento".
+   ===================================================================== */
+.barra { transition: box-shadow .25s, background-color .25s; }
+.barra.bajando { box-shadow: 0 10px 30px -18px rgb(0 0 0 / .8); background: rgb(11 33 68 / .95); }
+
+.seccion > h2::after {
+  content: ""; display: block; width: 4.5rem; height: 9px; margin-top: .9rem;
+  background:
+    linear-gradient(var(--color-cota), var(--color-cota)) 0 50% / 100% 1.5px no-repeat,
+    linear-gradient(var(--color-cota), var(--color-cota)) 0 0 / 1.5px 100% no-repeat,
+    linear-gradient(var(--color-cota), var(--color-cota)) 100% 0 / 1.5px 100% no-repeat;
+}
+.btn-primario svg { transition: transform .2s; }
+.btn-primario:hover svg { transform: translateY(2px); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .portada h1, .js .portada .entrada, .js .portada .acciones, .js .portada .nota { animation: subir .8s cubic-bezier(.2,.7,.2,1) both; }
+  .js .portada .entrada { animation-delay: .12s; }
+  .js .portada .acciones { animation-delay: .24s; }
+  .js .portada .nota { animation-delay: .34s; }
+  .js .lamina .hoja { animation: posar 1.1s cubic-bezier(.2,.7,.2,1) .15s both; }
+  @keyframes subir { from { opacity: 0; transform: translateY(18px); } }
+  @keyframes posar { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+
+  .js .seccion > h2::after { transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.6,0,.2,1) .15s; }
+  .js .seccion.visto > h2::after { transform: none; }
+
+  .js .pasos > li { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .pasos.visto > li { opacity: 1; transform: none; }
+
+  .ui.tab.segment.panel.active .panel-grid { animation: cambiar .45s cubic-bezier(.2,.7,.2,1); }
+  @keyframes cambiar { from { opacity: 0; transform: translateX(10px); } }
+
+  .captura { overflow: hidden; }
+  .captura img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .captura:hover img { transform: scale(1.02); }
+}
