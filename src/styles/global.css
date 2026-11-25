@@ -245,7 +245,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .ui.accordion.preguntas .title:hover { background: var(--color-lima); }
 .ui.accordion.preguntas .title.active { background: var(--color-tinta); color: #fff !important; box-shadow: none; transform: translate(4px, 4px); }
-.ui.accordion.preguntas .title .dropdown.icon { color: var(--color-naranja); }
+.ui.accordion.preguntas .title .dropdown.icon { color: var(--color-tinta); }
 .ui.accordion.preguntas .content { color: var(--color-tinta-2); padding: 1rem 1.2rem !important; margin: -.8rem 0 0 4px; border: var(--b); border-top: 0; background: var(--color-papel-2); }
 .ui.accordion.preguntas .content:not(.active) { display: none; }
 .ui.accordion.preguntas .content p { margin: 0; max-width: 42em; }
@@ -347,4 +347,9 @@ html, main { overflow-x: clip; }
 
   .ui.tab.segment.panel.active .panel-grid { animation: cambiar .2s steps(3); }
   @keyframes cambiar { from { opacity: 0; transform: translateX(10px); } }
+}
+
+/* Pulido: la lista de ambientes del visor se desvanece abajo para avisar que se puede desplazar */
+@media (min-width: 60.01rem) {
+  .visor3d-lista { -webkit-mask-image: linear-gradient(#000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(#000 calc(100% - 2.5rem), transparent); padding-bottom: 2rem; }
 }
