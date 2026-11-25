@@ -353,3 +353,50 @@ html, main { overflow-x: clip; }
 @media (min-width: 60.01rem) {
   .visor3d-lista { -webkit-mask-image: linear-gradient(#000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(#000 calc(100% - 2.5rem), transparent); padding-bottom: 2rem; }
 }
+
+/* =====================================================================
+   Línea de cómic (en tonos suaves)
+   Trama de puntos de imprenta en las franjas y bloques de color, líneas de
+   acción detrás de la lámina de portada, globo de diálogo junto a cada
+   captura y sombra de trama bajo las tarjetas.
+   ===================================================================== */
+:root {
+  --trama: radial-gradient(rgb(17 17 17 / .13) 1.1px, transparent 1.5px);
+  --trama-paso: 7px 7px;
+}
+
+#casa-3d::before, #como::before, #descargar::before, #ayuda::before,
+.datos li, .contacto, .aviso {
+  background-image: var(--trama); background-size: var(--trama-paso);
+}
+.aviso { background-image: var(--trama), repeating-linear-gradient(-45deg, var(--color-cota) 0 14px, #f7e5b8 14px 28px); background-size: var(--trama-paso), auto; }
+
+/* Líneas de acción que salen de la lámina */
+.portada { position: relative; isolation: isolate; }
+.portada::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-conic-gradient(from 0deg at 70% 48%, rgb(17 17 17 / .06) 0 1.2deg, transparent 1.2deg 7deg);
+  -webkit-mask-image: radial-gradient(circle at 70% 48%, transparent 0 20rem, #000 42rem);
+          mask-image: radial-gradient(circle at 70% 48%, transparent 0 20rem, #000 42rem);
+}
+@media (max-width: 60rem) { .portada::before { display: none; } }
+
+/* Rótulos de sección: tinta más gruesa, como un cartucho de viñeta */
+.seccion > h2 { border-width: 4px; box-shadow: 5px 5px 0 var(--color-tinta), 10px 10px 0 rgb(17 17 17 / .12); }
+
+/* Tarjetas: sombra dura y, detrás, una sombra de trama */
+.pasos-3 > li, .manuales, .ui.accordion.preguntas .title {
+  box-shadow: 4px 4px 0 var(--color-tinta), 9px 9px 0 rgb(17 17 17 / .12);
+}
+
+/* Globo de diálogo: el texto junto a la captura apunta hacia ella */
+.panel-grid > div { position: relative; border-radius: 1.1rem; border-width: 4px; }
+.panel-grid > div::before, .panel-grid > div::after {
+  content: ""; position: absolute; top: auto; bottom: 1.6rem; width: 0; height: 0; border-style: solid;
+}
+.panel-grid > div::before { left: -26px; border-width: 12px 26px 12px 0; border-color: transparent var(--color-tinta) transparent transparent; }
+.panel-grid > div::after { left: -19px; border-width: 8px 20px 8px 0; border-color: transparent var(--color-rosa) transparent transparent; bottom: calc(1.6rem + 4px); }
+@media (max-width: 52rem) {
+  .panel-grid > div::before { left: 2rem; top: -26px; bottom: auto; border-width: 0 12px 26px 12px; border-color: transparent transparent var(--color-tinta) transparent; }
+  .panel-grid > div::after { left: calc(2rem + 4px); top: -19px; bottom: auto; border-width: 0 8px 20px 8px; border-color: transparent transparent var(--color-rosa) transparent; }
+}
