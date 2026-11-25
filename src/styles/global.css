@@ -340,10 +340,10 @@ html, main { overflow-x: clip; }
   @keyframes sello { from { opacity: 0; transform: translate(-10px, -10px); } }
 
   .js .seccion > h2 { transform: rotate(-3deg); transition: transform .25s steps(3); }
-  .js .seccion.visto > h2 { transform: none; }
+  .js .seccion.visto > h2 { transform: rotate(-1.2deg); }
 
   .js .pasos > li { opacity: 0; transform: translateY(14px); transition: opacity .3s steps(3), transform .3s steps(3); transition-delay: calc(var(--i, 0) * 80ms); }
-  .js .pasos.visto > li { opacity: 1; transform: none; }
+  .js .pasos.visto > li { opacity: 1; transform: var(--giro, none); }
 
   .ui.tab.segment.panel.active .panel-grid { animation: cambiar .2s steps(3); }
   @keyframes cambiar { from { opacity: 0; transform: translateX(10px); } }
@@ -399,4 +399,46 @@ html, main { overflow-x: clip; }
 @media (max-width: 52rem) {
   .panel-grid > div::before { left: 2rem; top: -26px; bottom: auto; border-width: 0 12px 26px 12px; border-color: transparent transparent var(--color-tinta) transparent; }
   .panel-grid > div::after { left: calc(2rem + 4px); top: -19px; bottom: auto; border-width: 0 8px 20px 8px; border-color: transparent transparent var(--color-rosa) transparent; }
+}
+
+/* =====================================================================
+   Cómic pop-art en tonos suaves
+   Mismas formas que una página de cómic (rayos, explosiones, rótulos
+   ladeados y viñetas inclinadas) con la paleta suave de esta web.
+   ===================================================================== */
+:root {
+  --estallido: polygon(50% 0%, 59.3% 15.2%, 75% 6.7%, 75.5% 24.5%, 93.3% 25%, 84.8% 40.7%, 100% 50%, 84.8% 59.3%, 93.3% 75%, 75.5% 75.5%, 75% 93.3%, 59.3% 84.8%, 50% 100%, 40.7% 84.8%, 25% 93.3%, 24.5% 75.5%, 6.7% 75%, 15.2% 59.3%, 0% 50%, 15.2% 40.7%, 6.7% 25%, 24.5% 24.5%, 25% 6.7%, 40.7% 15.2%);
+}
+
+/* Portada: rayos en arena y durazno */
+.portada::before {
+  background: var(--trama), repeating-conic-gradient(from 0deg at 70% 48%, var(--color-cota) 0 4deg, var(--color-naranja) 4deg 8deg);
+  background-size: var(--trama-paso), auto;
+  opacity: .45;
+}
+
+/* Rótulos de sección ladeados */
+.seccion > h2 { transform: rotate(-1.2deg); transform-origin: left bottom; }
+
+/* Número de cada paso dentro de una explosión */
+.pasos h3::before {
+  display: grid; place-items: center; width: 3.3rem; height: 3.3rem; padding: 0; border: 0;
+  clip-path: var(--estallido); font-size: .95rem; transform: rotate(-10deg);
+}
+
+/* Viñetas inclinadas */
+.pasos-3 > li:nth-child(odd), .publico > div:nth-child(odd) { --giro: rotate(-.8deg); transform: var(--giro); }
+.pasos-3 > li:nth-child(even), .publico > div:nth-child(even) { --giro: rotate(.7deg); transform: var(--giro); }
+.datos { transform: rotate(-.5deg); }
+.contacto { transform: rotate(-.6deg); }
+@media (max-width: 40rem) { .datos, .contacto { transform: none; } }
+/* Rayos a todo el ancho, desvanecidos hacia abajo (html y main recortan el desborde lateral) */
+.portada::before {
+  inset: 0 -100vmax;
+  -webkit-mask-image: radial-gradient(circle at calc(50% + 15rem) 48%, transparent 0 20rem, #000 42rem), linear-gradient(#000 70%, transparent);
+  -webkit-mask-composite: source-in;
+          mask-image: radial-gradient(circle at calc(50% + 15rem) 48%, transparent 0 20rem, #000 42rem), linear-gradient(#000 70%, transparent);
+          mask-composite: intersect;
+  background: var(--trama), repeating-conic-gradient(from 0deg at calc(50% + 15rem) 48%, var(--color-cota) 0 4deg, var(--color-naranja) 4deg 8deg);
+  background-size: var(--trama-paso), auto;
 }
