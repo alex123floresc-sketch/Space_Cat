@@ -1,7 +1,7 @@
 ---
 codigo: SC-MUS
 norma: ISO/IEC/IEEE 26514:2022
-proyecto: Space Cat 2.1.0
+proyecto: Space Cat 2.2.0
 ---
 
 # Manual de usuario
@@ -10,7 +10,7 @@ proyecto: Space Cat 2.1.0
 
 ### 1.1 Propósito
 
-Este manual enseña a usar Space Cat 2.1.0, paso a paso y con capturas reales: diseñar y amoblar
+Este manual enseña a usar Space Cat 2.2.0, paso a paso y con capturas reales: diseñar y amoblar
 ambientes con medidas reales, verlos en 3D y obtener el presupuesto.
 
 ### 1.2 A quién va dirigido
@@ -48,7 +48,7 @@ tampoco entra en Space Cat. Funciona sin internet.
 | Video | Cualquier tarjeta con aceleración 3D |
 | Espacio en disco | 300 MB |
 
-**Instalar:** doble clic en `SpaceCat-2.1.0.exe` → **Next** → **Next** → **Install** → **Finish**. Si Windows
+**Instalar:** doble clic en `SpaceCat-2.2.0.exe` → **Next** → **Next** → **Install** → **Finish**. Si Windows
 muestra *«Windows protegió su PC»*: *Más información → Ejecutar de todas formas*. Cada pantalla está
 en el manual de instalación.
 

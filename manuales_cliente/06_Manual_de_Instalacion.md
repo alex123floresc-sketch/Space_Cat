@@ -1,7 +1,7 @@
 ---
 codigo: SC-MIN
 norma: ISO/IEC/IEEE 26514:2022
-proyecto: Space Cat 2.1.0
+proyecto: Space Cat 2.2.0
 ---
 
 # Manual de instalación
@@ -10,7 +10,7 @@ proyecto: Space Cat 2.1.0
 
 ### 1.1 Propósito
 
-Este manual explica, paso a paso y con las pantallas reales, cómo instalar Space Cat 2.1.0 en una
+Este manual explica, paso a paso y con las pantallas reales, cómo instalar Space Cat 2.2.0 en una
 computadora con Windows usando su instalador, el único archivo que hay que descargar. También indica
 cómo comprobar que funciona, dónde se guardan sus proyectos, cómo actualizarla, cómo desinstalarla y
 qué hacer ante los avisos más comunes. El uso de la aplicación se explica en el manual de usuario.
@@ -25,7 +25,7 @@ necesitan permisos de administrador.
 |---|---|---|
 | **Negrita** | Botón, opción o campo de la pantalla, escrito tal como aparece | Pulse **Next** |
 | *Menú → Opción* | Ruta dentro de un menú | *Ayuda → Acerca de Space Cat* |
-| `texto en recuadro` | Nombre de un archivo o de una carpeta | `SpaceCat-2.1.0.exe` |
+| `texto en recuadro` | Nombre de un archivo o de una carpeta | `SpaceCat-2.2.0.exe` |
 | «texto entre comillas» | Mensaje que muestra Windows o la aplicación | «Windows protegió su PC» |
 
 **Importante:** el instalador de Space Cat muestra sus ventanas **en inglés**. En
@@ -40,15 +40,15 @@ escriba, pulsando `Enter` después de cada línea:
 
 ```powershell
 cd $HOME\Downloads
-Get-FileHash .\SpaceCat-2.1.0.exe
+Get-FileHash .\SpaceCat-2.2.0.exe
 ```
 
 El valor de la columna **Hash** debe ser exactamente el de la tabla siguiente:
 
-<!-- Tabla: Huellas SHA-256 de los archivos de la versión 2.1.0 -->
+<!-- Tabla: Huellas SHA-256 de los archivos de la versión 2.2.0 -->
 | Archivo | SHA-256 |
 |---|---|
-| `SpaceCat-2.1.0.exe` | `F7461B795E7BA5DAA7421CC623B504358DE03255DCED201D0F5542107677CA03` |
+| `SpaceCat-2.2.0.exe` | `D77AFA666C3326C1960AA0B8D863766136496326C92F0AE7E43FB4FA222BC36C` |
 
 Si no coincide, borre el archivo y vuelva a descargarlo.
 
@@ -74,10 +74,10 @@ Para saber si la computadora es de 64 bits: *Configuración → Sistema → Info
 1. Abra la página web de Space Cat (`alex123floresc-sketch.github.io/Space_Cat`) y pulse
    **Descargar** en la barra superior (o **Descargar para Windows** en la portada). La página baja a
    la sección **Descargar**.
-2. Pulse **Descargar instalador**. Se descarga `SpaceCat-2.1.0.exe`, de **61.4 MB**.
+2. Pulse **Descargar instalador**. Se descarga `SpaceCat-2.2.0.exe`, de **61.4 MB**.
 3. Arriba a la derecha del navegador aparece el botón de **descargas** (una flecha hacia abajo). Al
    pulsarlo se abre el **Historial de descargas recientes**, con la línea
-   «SpaceCat-2.1.0.exe · 61.4 MB · Listo» cuando la descarga terminó.
+   «SpaceCat-2.2.0.exe · 61.4 MB · Listo» cuando la descarga terminó.
 4. Si el navegador avisa que el archivo «no se descarga normalmente», pulse **Conservar** (en
    Microsoft Edge: **…** → **Conservar** → **Mostrar más** → **Conservar de todos modos**).
 
@@ -86,7 +86,7 @@ Para saber si la computadora es de 64 bits: *Configuración → Sistema → Info
 <!-- Tabla: Elementos señalados al descargar el instalador -->
 | Elemento señalado | Función | Para qué sirve |
 |---|---|---|
-| **Clic para descargar** | Botón **Descargar instalador** | Descarga `SpaceCat-2.1.0.exe`, el único archivo necesario: trae la aplicación y su propio Java |
+| **Clic para descargar** | Botón **Descargar instalador** | Descarga `SpaceCat-2.2.0.exe`, el único archivo necesario: trae la aplicación y su propio Java |
 | **Comprobar que el archivo es original** | Apartado desplegable *Comprobar que el archivo es original (SHA-256)* | Muestra la huella SHA-256 del instalador para confirmar que el archivo no fue alterado (apartado 1.3) |
 | **Este manual** | Botón **Abrir** del *Manual de instalación* | Abre este mismo manual en PDF desde la página web |
 
@@ -94,22 +94,22 @@ El archivo también queda en la carpeta **Descargas** (`C:\Users\<su usuario>\Do
 
 ### 3.2 Abrir el instalador y la advertencia de Windows (SmartScreen)
 
-1. Haga clic en la línea **SpaceCat-2.1.0.exe** del historial de descargas, o doble clic en el
+1. Haga clic en la línea **SpaceCat-2.2.0.exe** del historial de descargas, o doble clic en el
    archivo dentro de la carpeta **Descargas**.
 2. La primera vez, Windows muestra una ventana azul titulada **«Windows protegió su PC»**, con el
    texto «SmartScreen de Microsoft Defender impidió el inicio de una aplicación desconocida».
    Aparece porque el instalador no tiene firma digital, no porque tenga un problema.
 3. Si solo se ve el botón **No ejecutar**, haga clic en **Más información** (debajo del texto): se
-   muestran «Aplicación: SpaceCat-2.1.0.exe», «Editor: Editor desconocido» y el botón
+   muestran «Aplicación: SpaceCat-2.2.0.exe», «Editor: Editor desconocido» y el botón
    **Ejecutar de todas formas**.
-4. Compruebe que el nombre sea `SpaceCat-2.1.0.exe` y pulse **Ejecutar de todas formas**.
+4. Compruebe que el nombre sea `SpaceCat-2.2.0.exe` y pulse **Ejecutar de todas formas**.
 
 ![Ventana «Windows protegió su PC» con el botón Ejecutar de todas formas](capturas/31_windows_protegio_su_pc.png)
 
 <!-- Tabla: Elementos señalados en la advertencia de Windows -->
 | Elemento señalado | Función | Para qué sirve |
 |---|---|---|
-| **Nombre del archivo** | Muestra qué programa se va a abrir | Comprobar que es `SpaceCat-2.1.0.exe` y no otro archivo |
+| **Nombre del archivo** | Muestra qué programa se va a abrir | Comprobar que es `SpaceCat-2.2.0.exe` y no otro archivo |
 | **Ejecutar de todas formas** | Abre el instalador a pesar del aviso | Continuar con la instalación |
 | **No ejecutar: cancela** | Cierra el aviso sin abrir nada | Salir si el nombre no coincide o si se abrió por error |
 
@@ -199,7 +199,7 @@ Los proyectos del usuario no se guardan en la carpeta del programa, sino en `%AP
 |---|---|---|
 | 1 | Abrir Space Cat | Aparece la pantalla *«¿Qué quieres hacer hoy?»* |
 | 2 | Elegir **Casa de ejemplo** | La casa se ve en 3D y gira al arrastrar con el ratón |
-| 3 | *Ayuda → Acerca de Space Cat* | Muestra la versión 2.1.0 y la carpeta de datos |
+| 3 | *Ayuda → Acerca de Space Cat* | Muestra la versión 2.2.0 y la carpeta de datos |
 | 4 | Guardar con `Ctrl+S`, cerrar y volver a abrir | El proyecto aparece en *Archivo → Abrir…* |
 
 ![Ventana Abrir proyecto con un proyecto guardado](capturas/17_abrir_proyecto.png)
@@ -230,7 +230,7 @@ escriba esa ruta en la barra de direcciones del Explorador de Windows).
 2. Instálela encima de la anterior.
 3. Abra la aplicación: la base de datos se actualiza sola al nuevo formato, sin perder proyectos.
 
-**Si antes tenía Amoblador3D 2.0.0.** Space Cat 2.1.0 es la misma aplicación con otro nombre. La
+**Si antes tenía Amoblador3D 2.0.0.** Space Cat 2.2.0 es la misma aplicación con otro nombre. La
 primera vez que se abre, si existe la carpeta de datos anterior `%APPDATA%\Amoblador3D` y todavía no
 existe `%APPDATA%\Space Cat`, copia allí los proyectos, diseños, precios y modelos importados, una
 sola vez y sin borrar la carpeta anterior. Los archivos `.amob3d` guardados con Amoblador3D se abren
