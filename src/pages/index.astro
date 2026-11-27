@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const img = (f: string) => `${base}/img/${f}`;
-const version = '2.1.0';
+const version = '2.2.0';
 const instalador = `https://github.com/alex123floresc-sketch/Space_Cat/releases/download/v${version}/SpaceCat-${version}.exe`;
-const sha256 = 'F7461B795E7BA5DAA7421CC623B504358DE03255DCED201D0F5542107677CA03';
+const sha256 = 'D77AFA666C3326C1960AA0B8D863766136496326C92F0AE7E43FB4FA222BC36C';
 const whatsapp = 'https://wa.me/51919192008';
 
 const funciones = [
@@ -39,8 +39,8 @@ const funciones = [
 ];
 
 const instalar = [
-  { n: 30, w: 1054, h: 494, t: 'Descarga', d: 'En Descargar, pulsa Descargar instalador. Cuando el navegador muestre «SpaceCat-2.1.0.exe · 61.4 MB · Listo», haz clic en esa línea.', alt: 'Sección Descargar de esta página, con el botón Descargar instalador, la comprobación SHA-256 y el manual de instalación señalados' },
-  { n: 31, w: 680, h: 642, t: 'Aviso de Windows', d: 'Si aparece «Windows protegió su PC», comprueba que diga SpaceCat-2.1.0.exe y pulsa Ejecutar de todas formas (antes, Más información).', alt: 'Ventana Windows protegió su PC' },
+  { n: 30, w: 1054, h: 494, t: 'Descarga', d: 'En Descargar, pulsa Descargar instalador. Cuando el navegador muestre «SpaceCat-2.2.0.exe · 61.4 MB · Listo», haz clic en esa línea.', alt: 'Sección Descargar de esta página, con el botón Descargar instalador, la comprobación SHA-256 y el manual de instalación señalados' },
+  { n: 31, w: 680, h: 642, t: 'Aviso de Windows', d: 'Si aparece «Windows protegió su PC», comprueba que diga SpaceCat-2.2.0.exe y pulsa Ejecutar de todas formas (antes, Más información).', alt: 'Ventana Windows protegió su PC' },
   { n: 32, w: 621, h: 482, t: 'Bienvenida', d: 'El asistente está en inglés. En «Welcome to the Space Cat Setup Wizard», pulsa Next.', alt: 'Bienvenida del asistente de instalación' },
   { n: 33, w: 665, h: 546, t: 'Carpeta', d: 'Deja la carpeta que propone y pulsa Next. Si quieres otra, elígela con Change….', alt: 'Pantalla de carpeta de destino' },
   { n: 34, w: 638, h: 527, t: 'Instalar', d: 'En «Ready to install Space Cat», pulsa Install. No pide permisos de administrador.', alt: 'Pantalla lista para instalar' },
